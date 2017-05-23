@@ -22,7 +22,7 @@ sudo apt-get update
 # uncomment next line for vmware installs
 #sudo apt-get install --assume-yes open-vmware-tools
 
-sudo apt-get install --assume-yes git python3 pylint htop tmux virtualenv exuberant-ctags
+sudo apt-get install --assume-yes git python3 htop tmux virtualenv exuberant-ctags
 
 # git config
 git config --global color.ui true
