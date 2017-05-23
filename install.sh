@@ -37,6 +37,9 @@ mkdir -p ~/bin
 ln -s ~/gitrepos/debian-dev-env/pylintrc ~/.pylintrc
 ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/bin/s
 cp ~/gitrepos/debian-dev-env/ssh_hosts.ini ~/.ssh_hosts.ini
+ln -s ~/gitrepos/debian-dev-env/clear_screen ~/bin/c
+chmod +x ~/bin/s
+chmod +x ~/bin/c
 ln -s ~/gitrepos/dotvim ~/.vim
 ln -s ~/gitrepos/dotvim/vimrc ~/.vimrc
 ln -s ~/gitrepos/Vundle.vim ~/.vim/bundle/Vundle.vim
@@ -58,5 +61,7 @@ echo "alias gd='git diff'" >> ~/.profile
 echo "stty -ixon  # prevents Ctrl-S freezes in putty" >> ~/.bashrc
 echo 'PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:[\[\033[33;1m\]\w\[\033[32m\]] \[\033[1;33m\]-> \[\033[0m\]"' >> ~/.bashrc
 
-
 source ~/.profile
+
+cat ~/gitrepos/debian-dev-env/inputrc >> ~/.inputrc
+bind -f ~/.inputrc

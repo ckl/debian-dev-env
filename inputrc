@@ -1,0 +1,11 @@
+# defaults:
+# C-i: complete 
+# C-a: start of line
+# C-e: end of line
+# C-p: scroll up to previous command
+ 
+# custom
+C-l: forward-word
+C-h: backward-word
+
+set completion-ignore-case on
