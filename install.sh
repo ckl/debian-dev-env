@@ -35,6 +35,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/gitrepos/Vundle.vim
 
 # link stuff to git repos
 ln -s ~/gitrepos/debian-dev-env/pylintrc ~/.pylintrc
+ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/.ssh_hosts.ini
 ln -s ~/gitrepos/dotvim ~/.vim
 ln -s ~/gitrepos/dotvim/vimrc ~/.vimrc
 ln -s ~/gitrepos/Vundle.vim ~/.vim/bundle/Vundle.vim
@@ -51,6 +52,7 @@ echo "alias ga='git add'" >> ~/.profile
 echo "alias gs='git status'" >> ~/.profile
 echo "alias gc='git commit'" >> ~/.profile
 echo "alias gl='git log -p'" >> ~/.profile
+echo "alias gd='git diff'" >> ~/.profile
 echo "stty -ixon  # prevents Ctrl-S freezes in putty" >> ~/.bashrc
 echo 'PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:[\[\033[33;1m\]\w\[\033[32m\]] \[\033[1;33m\]-> \[\033[0m\]"' >> ~/.bashrc
 
