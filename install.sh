@@ -4,6 +4,7 @@
 # sudo service networking restart
 
 # putty settings:
+# run Liquid_Carbon_Transparent.reg (modify SESSION_NAME in file first)
 # No bell
 # Temporary disable bell
 #   over-use: 1
