@@ -24,6 +24,9 @@ sudo apt-get update
 
 sudo apt-get install --assume-yes git python3 pylint htop tmux virtualenv exuberant-ctags
 
+# git config
+git config color.ui true
+
 # start cloning git repos
 mkdir -p ~/gitrepos
 git clone https://github.com/ckl/debian-dev-env.git ~/gitrepos/debian-dev-env
