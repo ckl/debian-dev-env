@@ -45,8 +45,8 @@ ln -s ~/gitrepos/tmuxconf/tmux.conf ~/.tmux.conf
 
 # install vim and its plugins
 sudo apt-get install --assume-yes vim vim-youcompleteme
-vim +PluginInstall +qall
 vam install youcompleteme
+vim +PluginInstall +qall
 cp /usr/share/doc/vim-youcompleteme/examples/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
 
 echo "alias vi='vim -X'" >> ~/.profile
