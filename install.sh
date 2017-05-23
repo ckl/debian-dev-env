@@ -17,30 +17,52 @@
 
 # general settings:
 # ssh on different port: /etc/ssh/sshd_config
+PACKAGES = "vim python3 htop tmux virtualenv exuberant-ctags"
 
+echo "------------------------------------------"
+echo "-- Setup debian development environment --"
+echo "------------------------------------------"
 
-sudo apt-get update
+echo "Running apt-get update..."
+sudo apt-get -q update
 # uncomment next line for vmware installs
-#sudo apt-get install --assume-yes open-vmware-tools
 
-sudo apt-get install --assume-yes git python3 htop tmux virtualenv exuberant-ctags
+read -p "Install open-vmware-tools? [Y/n/q]: " choice
+case "$choice" in
+    y|Y ) sudo apt-get install --assume-yes open-vmware-tools ;;
+    q|Q ) exit ;;
+esac
 
 # git config
-git config --global color.ui true
-git config --global color.diff true
-git config --global color.status true
-git config --global color.branch true 
+read -p "Install git and configure for color? [Y/n/q]: " choice
+case "$choice" in
+    y|Y )   sudo apt-get -q install --assume-yes git 
+            git config --global color.ui true
+            git config --global color.diff true
+            git config --global color.status true
+            git config --global color.branch true 
+            ;;
+    q|Q )   exit ;;
+esac
+
 
 # start cloning git repos
-mkdir -p ~/gitrepos
-git clone https://github.com/ckl/debian-dev-env.git ~/gitrepos/debian-dev-env
-git clone https://github.com/ckl/dotvim.git ~/gitrepos/dotvim
-git clone https://github.com/ckl/tmuxconf.git ~/gitrepos/tmuxconf
-git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/gitrepos/tmux-resurrect
-git clone https://github.com/VundleVim/Vundle.vim.git ~/gitrepos/Vundle.vim
+read -p "Clone github repos to ~/gitrepos? [Y/n/q]: " choice
+case "$choice" in
+    y|Y)    mkdir -p ~/gitrepos
+            git clone https://github.com/ckl/debian-dev-env.git ~/gitrepos/debian-dev-env
+            git clone https://github.com/ckl/dotvim.git ~/gitrepos/dotvim
+            git clone https://github.com/ckl/tmuxconf.git ~/gitrepos/tmuxconf
+            git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/gitrepos/tmux-resurrect
+            git clone https://github.com/VundleVim/Vundle.vim.git ~/gitrepos/Vundle.vim
+            ;;
+    q|q)    exit ;;
+esac
 
 # link stuff to git repos
+
 mkdir -p ~/bin
+echo "Creating symlinks and setting permissions..."
 ln -s ~/gitrepos/debian-dev-env/pylintrc ~/.pylintrc
 ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/bin/s
 cp ~/gitrepos/debian-dev-env/ssh_hosts.ini ~/.ssh_hosts.ini
@@ -52,12 +74,18 @@ ln -s ~/gitrepos/dotvim/vimrc ~/.vimrc
 ln -s ~/gitrepos/Vundle.vim ~/.vim/bundle/Vundle.vim
 ln -s ~/gitrepos/tmuxconf/tmux.conf ~/.tmux.conf
 
-# install vim and its plugins
-sudo apt-get install --assume-yes vim vim-youcompleteme
+# install vim, its plugins, and other dev stuff
+read -p "Install $PACKAGES [Y/n/q]: " choice
+case "$choice" in
+    y|Y) sudo apt-get -q install --assume-yes $PACKAGES ;;
+    q|Q) exit ;;
+esac
+
 vam install youcompleteme
 vim +PluginInstall +qall
 cp /usr/share/doc/vim-youcompleteme/examples/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
 
+echo "Creating aliases and setting prompt..."
 echo "alias vi='vim -X'" >> ~/.profile
 echo "alias ls='ls -lhF --color=auto'" >> ~/.profile
 echo "alias ga='git add'" >> ~/.profile
