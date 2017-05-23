@@ -50,6 +50,7 @@ vam install youcompleteme
 cp /usr/share/doc/vim-youcompleteme/examples/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
 
 echo "alias vi='vim -X'" >> ~/.profile
+echo "alias ls='ls -lhF --color=auto'" >> ~/.profile
 echo "alias ga='git add'" >> ~/.profile
 echo "alias gs='git status'" >> ~/.profile
 echo "alias gc='git commit'" >> ~/.profile
