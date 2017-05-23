@@ -46,11 +46,11 @@ vim +PluginInstall +qall
 vam install youcompleteme
 cp /usr/share/doc/vim-youcompleteme/examples/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
 
-echo "alias vi='vim -X'" ~/.profile
-echo "alias ga='git add'" ~/.profile
-echo "alias gs='git status'" ~/.profile
-echo "alias gc='git commit'" ~/.profile
-echo "alias gl='git log -p'" ~/.profile
+echo "alias vi='vim -X'" >> ~/.profile
+echo "alias ga='git add'" >> ~/.profile
+echo "alias gs='git status'" >> ~/.profile
+echo "alias gc='git commit'" >> ~/.profile
+echo "alias gl='git log -p'" >> ~/.profile
 echo "stty -ixon  # prevents Ctrl-S freezes in putty" >> ~/.bashrc
 echo 'PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:[\[\033[33;1m\]\w\[\033[32m\]] \[\033[1;33m\]-> \[\033[0m\]"' >> ~/.bashrc
 
