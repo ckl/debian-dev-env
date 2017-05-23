@@ -11,7 +11,6 @@
 #   silence required: 999999
 # Font: Lucida Console, 10-point
 # Font quality: ClearType
-# Gap between window/edge: 10
 # Full screen on Alt-Enter
 # Connection > Data > Terminal-string-type: xterm-256color
 
