@@ -17,7 +17,7 @@
 
 # general settings:
 # ssh on different port: /etc/ssh/sshd_config
-PACKAGES = "vim python3 htop tmux virtualenv exuberant-ctags"
+PACKAGES="vim python3 htop tmux virtualenv exuberant-ctags"
 
 echo "------------------------------------------"
 echo "-- Setup debian development environment --"
@@ -27,36 +27,39 @@ echo "Running apt-get update..."
 sudo apt-get -q update
 # uncomment next line for vmware installs
 
-read -p "Install open-vmware-tools? [Y/n/q]: " choice
+read -p "Install open-vm-tools? [Y/n/q]: " choice
 case "$choice" in
-    y|Y ) sudo apt-get install --assume-yes open-vmware-tools ;;
-    q|Q ) exit ;;
+    q|Q) exit ;;
+    n|n) ;;
+    * ) sudo apt-get install --assume-yes open-vm-tools ;;
 esac
 
 # git config
 read -p "Install git and configure for color? [Y/n/q]: " choice
 case "$choice" in
-    y|Y )   sudo apt-get -q install --assume-yes git 
-            git config --global color.ui true
-            git config --global color.diff true
-            git config --global color.status true
-            git config --global color.branch true 
-            ;;
-    q|Q )   exit ;;
+    q|Q) exit ;;
+    n|N) ;;
+    *)   sudo apt-get -q install --assume-yes git 
+         git config --global color.ui true
+         git config --global color.diff true
+         git config --global color.status true
+         git config --global color.branch true 
+         ;;
 esac
 
 
 # start cloning git repos
 read -p "Clone github repos to ~/gitrepos? [Y/n/q]: " choice
 case "$choice" in
-    y|Y)    mkdir -p ~/gitrepos
-            git clone https://github.com/ckl/debian-dev-env.git ~/gitrepos/debian-dev-env
-            git clone https://github.com/ckl/dotvim.git ~/gitrepos/dotvim
-            git clone https://github.com/ckl/tmuxconf.git ~/gitrepos/tmuxconf
-            git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/gitrepos/tmux-resurrect
-            git clone https://github.com/VundleVim/Vundle.vim.git ~/gitrepos/Vundle.vim
-            ;;
-    q|q)    exit ;;
+    q|Q) exit ;;
+    n|N) ;;
+    *)   mkdir -p ~/gitrepos
+         git clone https://github.com/ckl/debian-dev-env.git ~/gitrepos/debian-dev-env
+         git clone https://github.com/ckl/dotvim.git ~/gitrepos/dotvim
+         git clone https://github.com/ckl/tmuxconf.git ~/gitrepos/tmuxconf
+         git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/gitrepos/tmux-resurrect
+         git clone https://github.com/VundleVim/Vundle.vim.git ~/gitrepos/Vundle.vim
+         ;;
 esac
 
 # link stuff to git repos
@@ -77,8 +80,9 @@ ln -s ~/gitrepos/tmuxconf/tmux.conf ~/.tmux.conf
 # install vim, its plugins, and other dev stuff
 read -p "Install $PACKAGES [Y/n/q]: " choice
 case "$choice" in
-    y|Y) sudo apt-get -q install --assume-yes $PACKAGES ;;
     q|Q) exit ;;
+    n|N) ;;
+    *) sudo apt-get -q install --assume-yes $PACKAGES ;;
 esac
 
 vam install youcompleteme
