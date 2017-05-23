@@ -19,7 +19,8 @@ def print_hosts():
 def main():
 
     if len(sys.argv) != 2:
-        print("\n\tUsage: s <hostname>\n")
+        print("\n\tUsage: %s <hostname> (add hosts to %s)\n" % 
+                (os.path.basename(sys.argv[0]), filepath))
         print_hosts()
         sys.exit()
 
