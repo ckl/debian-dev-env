@@ -34,8 +34,10 @@ git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/gitrepos/tmux-res
 git clone https://github.com/VundleVim/Vundle.vim.git ~/gitrepos/Vundle.vim
 
 # link stuff to git repos
+mkdir -p ~/bin
 ln -s ~/gitrepos/debian-dev-env/pylintrc ~/.pylintrc
-ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/.ssh_hosts.ini
+ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/bin/s
+cp ~/gitrepos/debian-dev-env/ssh_hosts.ini ~/.ssh_hosts.ini
 ln -s ~/gitrepos/dotvim ~/.vim
 ln -s ~/gitrepos/dotvim/vimrc ~/.vimrc
 ln -s ~/gitrepos/Vundle.vim ~/.vim/bundle/Vundle.vim
