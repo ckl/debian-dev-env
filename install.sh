@@ -64,8 +64,8 @@ esac
 
 # link stuff to git repos
 
-mkdir -p ~/bin
 echo "Creating symlinks and setting permissions..."
+mkdir -p ~/bin
 ln -s ~/gitrepos/debian-dev-env/pylintrc ~/.pylintrc
 ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/bin/s
 cp ~/gitrepos/debian-dev-env/ssh_hosts.ini ~/.ssh_hosts.ini
@@ -82,12 +82,13 @@ read -p "Install $PACKAGES [Y/n/q]: " choice
 case "$choice" in
     q|Q) exit ;;
     n|N) ;;
-    *) sudo apt-get -q install --assume-yes $PACKAGES ;;
+    *) sudo apt-get -q install --assume-yes $PACKAGES 
+       vam install youcompleteme
+       vim +PluginInstall +qall
+       cp /usr/share/doc/vim-youcompleteme/examples/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
+       ;;
 esac
 
-vam install youcompleteme
-vim +PluginInstall +qall
-cp /usr/share/doc/vim-youcompleteme/examples/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
 
 echo "Creating aliases and setting prompt..."
 echo "alias vi='vim -X'" >> ~/.profile
