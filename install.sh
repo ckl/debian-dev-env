@@ -17,7 +17,7 @@
 
 # general settings:
 # ssh on different port: /etc/ssh/sshd_config
-PACKAGES="vim vim-youcompleteme python3 python3-pip htop tmux virtualenv exuberant-ctags"
+PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb htop tmux virtualenv exuberant-ctags"
 
 echo "------------------------------------------"
 echo "-- Setup debian development environment --"
