@@ -17,6 +17,10 @@
 
 # general settings:
 # ssh on different port: /etc/ssh/sshd_config
+# ssh keys:
+#   ssh-keygen -t rsa on host
+#   transfer public key to server, put in ~/.ssh/_authorized_keys
+#   move private key to ~/.ssh/id_rsa
 PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb htop tmux virtualenv exuberant-ctags"
 
 echo "------------------------------------------"
