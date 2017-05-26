@@ -75,9 +75,11 @@ mkdir -p ~/bin
 ln -s ~/gitrepos/debian-dev-env/pylintrc ~/.pylintrc
 ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/bin/s
 cp ~/gitrepos/debian-dev-env/ssh_hosts.ini ~/.ssh_hosts.ini
-ln -s ~/gitrepos/debian-dev-env/clear_screen ~/bin/c
+ln -s ~/gitrepos/debian-dev-env/clear_screen.sh ~/bin/c
+ln -s ~/gitrepos/debian-dev-env/get_git_branch.sh ~/bin/get_git_branch
 chmod +x ~/bin/s
 chmod +x ~/bin/c
+chmod +x ~/bin/get_git_branch
 ln -s ~/gitrepos/dotvim ~/.vim
 ln -s ~/gitrepos/dotvim/vimrc ~/.vimrc
 ln -s ~/gitrepos/Vundle.vim ~/.vim/bundle/Vundle.vim
@@ -105,9 +107,10 @@ echo "alias gc='git commit'" >> ~/.profile
 echo "alias gl='git log -p'" >> ~/.profile
 echo "alias gd='git diff'" >> ~/.profile
 echo "stty -ixon  # prevents Ctrl-S freezes in putty" >> ~/.bashrc
-echo 'PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:[\[\033[33;1m\]\w\[\033[32m\]] \[\033[1;33m\]-> \[\033[0m\]"' >> ~/.bashrc
+echo 'export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:[\[\033[33;1m\]\w\[\033[32m\]]\[\033[36m\]\$(get_git_branch)\[\033[1;33m\] -> \[\033[0m\]"' >> ~/.bashrc
 
 source ~/.profile
+source ~/.bashrc
 
 cat ~/gitrepos/debian-dev-env/inputrc >> ~/.inputrc
 bind -f ~/.inputrc
