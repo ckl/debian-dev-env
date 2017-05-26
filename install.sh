@@ -121,8 +121,8 @@ case "$choice" in
        cat ~/gitrepos/debian-dev-env/inputrc >> ~/.inputrc
 
        echo "run manually or logout and log backin:"
-       echo "\tsource ~/.profile"
-       echo "\tsource ~/.bashrc"
-       echo "\tbind -f ~/.inputrc"
+       echo -e "\tsource ~/.profile"
+       echo -e "\tsource ~/.bashrc"
+       echo -e "\tbind -f ~/.inputrc"
        ;;
 esac
