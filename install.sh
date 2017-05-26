@@ -97,9 +97,11 @@ case "$choice" in
          cp ~/gitrepos/debian-dev-env/ssh_hosts.ini ~/.ssh_hosts.ini
          ln -s ~/gitrepos/debian-dev-env/clear_screen.sh ~/bin/c
          ln -s ~/gitrepos/debian-dev-env/get_git_branch.sh ~/bin/get_git_branch
+         ln -s ~/gitrepos/debian-dev-env/create_virtualenv.sh ~/bin/create_virtualenv
          chmod +x ~/bin/s
          chmod +x ~/bin/c
          chmod +x ~/bin/get_git_branch
+         chmod +x ~/bin/create_virtualenv
          ln -s ~/gitrepos/dotvim ~/.vim
          ln -s ~/gitrepos/dotvim/vimrc ~/.vimrc
          ln -s ~/gitrepos/Vundle.vim ~/.vim/bundle/Vundle.vim
