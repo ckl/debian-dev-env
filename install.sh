@@ -21,7 +21,8 @@
 #   ssh-keygen -t rsa on host
 #   transfer public key to server, put in ~/.ssh/_authorized_keys
 #   move private key to ~/.ssh/id_rsa
-PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb htop tmux virtualenv exuberant-ctags"
+UTILITIES="bsd-mailx exim4-config exim4 python2.7 openssh-client bash-completion python mime-support exim4-daemon-light exim4-base"
+DEV_PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb htop tmux virtualenv exuberant-ctags"
 UNINSTALL_PACKAGES="rpcbind"
 
 echo "------------------------------------------"
@@ -36,6 +37,13 @@ case "$choice" in
     q|Q) exit ;;
     n|n) ;;
     * ) sudo apt-get remove --purge --assume-yes $UNINSTALL_PACKAGES ;;
+esac
+
+read -p "Install utilities $UTILITIES? [Y/n/q]: " choice
+case "$choice" in
+    q|Q) exit ;;
+    n|n) ;;
+    * ) sudo apt-get -qq install --assume-yes $UTILITIES;;
 esac
 
 # vmware tools
@@ -99,11 +107,11 @@ case "$choice" in
  esac
 
 # install vim, its plugins, and other dev stuff
-read -p "Install $PACKAGES [Y/n/q]: " choice
+read -p "Install dev packages $DEV_PACKAGES [Y/n/q]: " choice
 case "$choice" in
     q|Q) exit ;;
     n|N) ;;
-    *) sudo apt-get -qq install --assume-yes $PACKAGES 
+    *) sudo apt-get -qq install --assume-yes $DEV_PACKAGES 
        vam install youcompleteme
        vim +PluginInstall +qall
        cp /usr/share/doc/vim-youcompleteme/examples/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
