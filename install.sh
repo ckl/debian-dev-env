@@ -28,18 +28,17 @@ echo "------------------------------------------"
 echo "-- Setup debian development environment --"
 echo "------------------------------------------"
 
+echo "Running apt-get update..."
+sudo apt-get -qq update
+
 read -p "Remove $UNINSTALL_PACKAGES? [Y/n/q]: " choice
 case "$choice" in
     q|Q) exit ;;
     n|n) ;;
-    * ) sudo apt-get remove --assume-yes $UNINSTALL_PACKAGES ;;
+    * ) sudo apt-get remove --purge --assume-yes $UNINSTALL_PACKAGES ;;
 esac
 
-
-echo "Running apt-get update..."
-sudo apt-get -qq update
-# uncomment next line for vmware installs
-
+# vmware tools
 read -p "Install open-vm-tools? [Y/n/q]: " choice
 case "$choice" in
     q|Q) exit ;;
@@ -120,7 +119,7 @@ case "$choice" in
        cat ~/gitrepos/debian-dev-env/bashrc >> ~/.bashrc
        cat ~/gitrepos/debian-dev-env/inputrc >> ~/.inputrc
 
-       echo "run manually or logout and log backin:"
+       echo "run manually or logout and log back in:"
        echo -e "\tsource ~/.profile"
        echo -e "\tsource ~/.bashrc"
        echo -e "\tbind -f ~/.inputrc"
