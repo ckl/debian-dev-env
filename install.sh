@@ -35,7 +35,7 @@ read -p "Install open-vm-tools? [Y/n/q]: " choice
 case "$choice" in
     q|Q) exit ;;
     n|n) ;;
-    * ) sudo apt-get install --assume-yes open-vm-tools ;;
+    * ) sudo apt-get -qq install --assume-yes open-vm-tools ;;
 esac
 
 # git config
