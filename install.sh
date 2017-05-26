@@ -107,20 +107,12 @@ case "$choice" in
     q|Q) exit ;;
     n|N) ;;
     *) echo "Creating aliases and setting prompt..."
-       echo "alias vi='vim -X'" >> ~/.profile
-       echo "alias ls='ls -lhF --color=auto'" >> ~/.profile
-       echo "alias ga='git add'" >> ~/.profile
-       echo "alias gs='git status'" >> ~/.profile
-       echo "alias gc='git commit'" >> ~/.profile
-       echo "alias gl='git log -p'" >> ~/.profile
-       echo "alias gd='git diff'" >> ~/.profile
-       source ~/.profile
-
-       echo "stty -ixon  # prevents Ctrl-S freezes in putty" >> ~/.bashrc
-       echo 'export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:[\[\033[33;1m\]\w\[\033[32m\]]\[\033[36m\]\$(get_git_branch)\[\033[1;33m\] -> \[\033[0m\]"' >> ~/.bashrc
-       source ~/.bashrc
-
+       cat ~/gitrepos/debian-dev-env/profile >> ~/.profile
+       cat ~/gitrepos/debian-dev-env/bashrc >> ~/.bashrc
        cat ~/gitrepos/debian-dev-env/inputrc >> ~/.inputrc
-       bind -f ~/.inputrc
+
+       echo "run manually: source ~/.profile"
+       echo "run manually: source ~/.bashrc"
+       echo "run manually: bind -f ~/.inputrc"
        ;;
 esac
