@@ -22,10 +22,19 @@
 #   transfer public key to server, put in ~/.ssh/_authorized_keys
 #   move private key to ~/.ssh/id_rsa
 PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb htop tmux virtualenv exuberant-ctags"
+UNINSTALL_PACKAGES="rpcbind"
 
 echo "------------------------------------------"
 echo "-- Setup debian development environment --"
 echo "------------------------------------------"
+
+read -p "Remove $UNINSTALL_PACKAGES? [Y/n/q]: " choice
+case "$choice" in
+    q|Q) exit ;;
+    n|n) ;;
+    * ) sudo apt-get remove --assume-yes $UNINSTALL_PACKAGES ;;
+esac
+
 
 echo "Running apt-get update..."
 sudo apt-get -qq update
