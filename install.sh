@@ -39,7 +39,7 @@ case "$choice" in
 esac
 
 # git config
-read -p "Install git and configure for color? [Y/n/q]: " choice
+read -p "Install git and add configs? [Y/n/q]: " choice
 case "$choice" in
     q|Q) exit ;;
     n|N) ;;
@@ -48,6 +48,8 @@ case "$choice" in
          git config --global color.diff true
          git config --global color.status true
          git config --global color.branch true 
+         git config --global alias.unstage = 'reset HEAD --'
+         git config --global alias.last = 'log -1 HEAD'
          ;;
 esac
 
