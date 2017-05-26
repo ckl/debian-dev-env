@@ -28,7 +28,7 @@ echo "-- Setup debian development environment --"
 echo "------------------------------------------"
 
 echo "Running apt-get update..."
-sudo apt-get -q update
+sudo apt-get -qq update
 # uncomment next line for vmware installs
 
 read -p "Install open-vm-tools? [Y/n/q]: " choice
@@ -43,7 +43,7 @@ read -p "Install git and add configs? [Y/n/q]: " choice
 case "$choice" in
     q|Q) exit ;;
     n|N) ;;
-    *)   sudo apt-get -q install --assume-yes git 
+    *)   sudo apt-get -qq install --assume-yes git 
          git config --global color.ui true
          git config --global color.diff true
          git config --global color.status true
@@ -69,28 +69,33 @@ case "$choice" in
 esac
 
 # link stuff to git repos
-
-echo "Creating symlinks and setting permissions..."
-mkdir -p ~/bin
-ln -s ~/gitrepos/debian-dev-env/pylintrc ~/.pylintrc
-ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/bin/s
-cp ~/gitrepos/debian-dev-env/ssh_hosts.ini ~/.ssh_hosts.ini
-ln -s ~/gitrepos/debian-dev-env/clear_screen.sh ~/bin/c
-ln -s ~/gitrepos/debian-dev-env/get_git_branch.sh ~/bin/get_git_branch
-chmod +x ~/bin/s
-chmod +x ~/bin/c
-chmod +x ~/bin/get_git_branch
-ln -s ~/gitrepos/dotvim ~/.vim
-ln -s ~/gitrepos/dotvim/vimrc ~/.vimrc
-ln -s ~/gitrepos/Vundle.vim ~/.vim/bundle/Vundle.vim
-ln -s ~/gitrepos/tmuxconf/tmux.conf ~/.tmux.conf
+read -p "Create symlinks and set permissions? [Y/n/q]: " choice
+case "$choice" in
+    q|Q) exit ;;
+    n|N) ;;
+    *)   echo "Creating symlinks and setting permissions..."
+         mkdir -p ~/bin
+         ln -s ~/gitrepos/debian-dev-env/pylintrc ~/.pylintrc
+         ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/bin/s
+         cp ~/gitrepos/debian-dev-env/ssh_hosts.ini ~/.ssh_hosts.ini
+         ln -s ~/gitrepos/debian-dev-env/clear_screen.sh ~/bin/c
+         ln -s ~/gitrepos/debian-dev-env/get_git_branch.sh ~/bin/get_git_branch
+         chmod +x ~/bin/s
+         chmod +x ~/bin/c
+         chmod +x ~/bin/get_git_branch
+         ln -s ~/gitrepos/dotvim ~/.vim
+         ln -s ~/gitrepos/dotvim/vimrc ~/.vimrc
+         ln -s ~/gitrepos/Vundle.vim ~/.vim/bundle/Vundle.vim
+         ln -s ~/gitrepos/tmuxconf/tmux.conf ~/.tmux.conf
+         ;;
+ esac
 
 # install vim, its plugins, and other dev stuff
 read -p "Install $PACKAGES [Y/n/q]: " choice
 case "$choice" in
     q|Q) exit ;;
     n|N) ;;
-    *) sudo apt-get -q install --assume-yes $PACKAGES 
+    *) sudo apt-get -qq install --assume-yes $PACKAGES 
        vam install youcompleteme
        vim +PluginInstall +qall
        cp /usr/share/doc/vim-youcompleteme/examples/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
