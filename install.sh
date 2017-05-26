@@ -22,8 +22,9 @@
 #   transfer public key to server, put in ~/.ssh/_authorized_keys
 #   move private key to ~/.ssh/id_rsa
 UTILITIES="bsd-mailx exim4-config exim4 python2.7 openssh-client bash-completion python mime-support exim4-daemon-light exim4-base"
-DEV_PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb htop tmux virtualenv exuberant-ctags"
+DEV_PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb htop tmux exuberant-ctags"
 UNINSTALL_PACKAGES="rpcbind"
+PIP_PACKAGES="virtualenv autoenv"
 
 echo "------------------------------------------"
 echo "-- Setup debian development environment --"
@@ -118,6 +119,16 @@ case "$choice" in
        ;;
 esac
 
+read -p "Install pip3 packages $PIP_PACKAGES [Y/n/q]: " choice
+case "$choice" in
+    q|Q) exit ;;
+    n|N) ;;
+    *) sudo pip3 install $PIP_PACKAGES 
+       echo "source `which activate.sh`" >> ~/.bashrc
+       ;;
+esac
+
+
 read -p "Create aliases and set prompt? [Y/n/q]: " choice
 case "$choice" in
     q|Q) exit ;;
@@ -128,8 +139,8 @@ case "$choice" in
        cat ~/gitrepos/debian-dev-env/inputrc >> ~/.inputrc
 
        echo "run manually or logout and log back in:"
-       echo -e "\tsource ~/.profile"
        echo -e "\tsource ~/.bashrc"
+       echo -e "\tsource ~/.profile"
        echo -e "\tbind -f ~/.inputrc"
        ;;
 esac
