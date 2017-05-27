@@ -95,7 +95,9 @@ case "$choice" in
          ln -s ~/gitrepos/debian-dev-env/pylintrc ~/.pylintrc
          ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/bin/s
          cp ~/gitrepos/debian-dev-env/ssh_hosts.ini ~/.ssh_hosts.ini
+         cp ~/gitrepos/debian-dev-env/check_hosts.sh ~/bin/check_hosts
          ln -s ~/gitrepos/debian-dev-env/htoprc ~/.config/htop/htoprc
+         ln -s ~/gitrepos/debian-dev-env/system_summary.sh ~/bin/system_summary
          ln -s ~/gitrepos/debian-dev-env/clear_screen.sh ~/bin/c
          ln -s ~/gitrepos/debian-dev-env/get_git_branch.sh ~/bin/get_git_branch
          ln -s ~/gitrepos/debian-dev-env/create_virtualenv.sh ~/bin/create_virtualenv
@@ -103,10 +105,14 @@ case "$choice" in
          chmod +x ~/bin/c
          chmod +x ~/bin/get_git_branch
          chmod +x ~/bin/create_virtualenv
+         chmod +x ~/bin/check_hosts
          ln -s ~/gitrepos/dotvim ~/.vim
          ln -s ~/gitrepos/dotvim/vimrc ~/.vimrc
          ln -s ~/gitrepos/Vundle.vim ~/.vim/bundle/Vundle.vim
          ln -s ~/gitrepos/tmuxconf/tmux.conf ~/.tmux.conf
+         ln -s ~/bin/check_hosts /etc/cron.daily/check_hosts
+
+         echo "update hosts in check_hosts and copy system_summary.sh to hosts as ~/bin/system_summary"
          ;;
  esac
 
