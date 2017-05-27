@@ -21,8 +21,8 @@
 #   ssh-keygen -t rsa on host
 #   transfer public key to server, put in ~/.ssh/_authorized_keys
 #   move private key to ~/.ssh/id_rsa
-UTILITIES="bsd-mailx exim4-config exim4 python2.7 openssh-client bash-completion python mime-support exim4-daemon-light exim4-base"
-DEV_PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb htop tmux exuberant-ctags"
+UTILITIES="bsd-mailx exim4-config exim4 python2.7 openssh-client bash-completion python mime-support exim4-daemon-light exim4-base htop"
+DEV_PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb tmux exuberant-ctags"
 UNINSTALL_PACKAGES="rpcbind"
 PIP_PACKAGES="virtualenv autoenv"
 
@@ -95,6 +95,7 @@ case "$choice" in
          ln -s ~/gitrepos/debian-dev-env/pylintrc ~/.pylintrc
          ln -s ~/gitrepos/debian-dev-env/ssh_man.py ~/bin/s
          cp ~/gitrepos/debian-dev-env/ssh_hosts.ini ~/.ssh_hosts.ini
+         ln -s ~/gitrepos/debian-dev-env/htoprc ~/.config/htop/htoprc
          ln -s ~/gitrepos/debian-dev-env/clear_screen.sh ~/bin/c
          ln -s ~/gitrepos/debian-dev-env/get_git_branch.sh ~/bin/get_git_branch
          ln -s ~/gitrepos/debian-dev-env/create_virtualenv.sh ~/bin/create_virtualenv
