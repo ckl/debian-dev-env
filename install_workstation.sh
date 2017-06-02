@@ -21,7 +21,7 @@
 #   ssh-keygen -t rsa on host
 #   transfer public key to server, put in ~/.ssh/_authorized_keys
 #   move private key to ~/.ssh/id_rsa
-UTILITIES="bsd-mailx exim4-config exim4 python2.7 openssh-client bash-completion python mime-support exim4-daemon-light exim4-base htop"
+UTILITIES="bsd-mailx exim4-config exim4 python2.7 openssh-client bash-completion python mime-support exim4-daemon-light exim4-base htop ntp"
 DEV_PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb tmux exuberant-ctags"
 UNINSTALL_PACKAGES="rpcbind"
 PIP_PACKAGES="virtualenv autoenv"

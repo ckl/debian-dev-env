@@ -2,7 +2,7 @@
 import os, sys, configparser
 
 home = os.path.expanduser("~")
-ini = '.ssh_hosts.ini'
+ini = '/home/user/.ssh_hosts.ini'
 filepath = os.path.join(home, ini)
 
 hosts = configparser.ConfigParser()
