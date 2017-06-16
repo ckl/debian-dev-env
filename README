@@ -1,5 +1,5 @@
 # debian-dev-env
 Script to setup a debian develop environment
 
-curl https://raw.githubusercontent.com/ckl/debian-dev-env/master/install.sh > install.sh
+curl https://raw.githubusercontent.com/ckl/debian-dev-env/master/install_workstation.sh > install.sh
 bash install.sh
