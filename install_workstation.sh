@@ -106,7 +106,7 @@ case "$choice" in
          ln -s ~/gitrepos/debian-dev-env/htoprc ~/.config/htop/htoprc
          ln -s ~/gitrepos/debian-dev-env/system_summary.sh ~/bin/system_summary
          ln -s ~/gitrepos/debian-dev-env/clear_screen.sh ~/bin/c
-         ln -s ~/gitrepos/debian-dev-env/get_git_branch.sh ~/bin/get_git_branch
+         ln -s ~/gitrepos/debian-dev-env/prompt_gitbranch ~/bin/prompt_gitbranch
          ln -s ~/gitrepos/debian-dev-env/create_virtualenv.sh ~/bin/create_virtualenv
          chmod +x ~/bin/s
          chmod +x ~/bin/c
