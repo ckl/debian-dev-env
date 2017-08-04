@@ -27,6 +27,8 @@
 # 2.) apt-get install linux-headers-$(uname -r)     (may also need to install linux-source)
 # 3.) git clone https://github.com/rasa/vmware-tools-patches.git
 # 4.) follow instructions to install, then set up shared folder in vmware and reboot
+# 5.) sudo mount -t vmhgfs .host:/ /path/to/mount   -OR-
+#     sudo mount -t vmhgfs .host:/share /path/to/mount/share
 
 UTILITIES="bsd-mailx exim4-config exim4 python2.7 openssh-client bash-completion python mime-support exim4-daemon-light exim4-base htop ntp"
 DEV_PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb tmux exuberant-ctags"
