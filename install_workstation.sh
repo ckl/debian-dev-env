@@ -21,6 +21,13 @@
 #   ssh-keygen -t rsa on host
 #   transfer public key to server, put in ~/.ssh/_authorized_keys
 #   move private key to ~/.ssh/id_rsa
+#
+# vmware shared folders:
+# 1.) apt-get install open-vm-tools                 (not sure if necessary, will test later)
+# 2.) apt-get install linux-headers-$(uname -r)     (may also need to install linux-source)
+# 3.) git clone https://github.com/rasa/vmware-tools-patches.git
+# 4.) follow instructions to install, then set up shared folder in vmware and reboot
+
 UTILITIES="bsd-mailx exim4-config exim4 python2.7 openssh-client bash-completion python mime-support exim4-daemon-light exim4-base htop ntp"
 DEV_PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb tmux exuberant-ctags"
 UNINSTALL_PACKAGES="rpcbind"
