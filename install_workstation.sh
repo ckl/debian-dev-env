@@ -30,6 +30,29 @@
 # 5.) sudo mount -t vmhgfs .host:/ /path/to/mount   -OR-
 #     sudo mount -t vmhgfs .host:/share /path/to/mount/share
 
+# Basic git setup:
+# on workstation, run 'ssh-keygen -t rsa' and add to /home/git/.ssh/authorized_keys"
+# to create a repo, run: "
+# mkdir -p /home/git/project-1.git"
+# cd /home/git/project-1.git"
+# git init --bare"
+# On the workstation, run: "
+# mkdir -p project"
+# cd project"
+# git init"
+# git add ."
+# git commit -m 'message'"
+# git remote add origin ssh://git@remote-server:port/home/git/project-1.git"
+# git push origin master"
+# on another workstation, clone git repo using: "
+# git clone ssh://git@remote-server:port/home/git/project-1.git"
+# to fully backup a git repo, run: "
+# git clone --mirror ssh://git@remote-server:port/home/git/project-1.git"
+# to update, run: "
+# cd project-1.git"
+# git remote update"
+
+
 UTILITIES="bsd-mailx exim4-config exim4 python2.7 openssh-client bash-completion python mime-support exim4-daemon-light exim4-base htop ntp"
 DEV_PACKAGES="vim vim-youcompleteme python3 python3-pip python3-pudb tmux exuberant-ctags"
 UNINSTALL_PACKAGES="rpcbind"
@@ -79,6 +102,16 @@ case "$choice" in
          ;;
 esac
 
+read -p "Install git server? [y/N/q]: " choice
+case "$choice" in
+    q|Q) exit ;;
+    y|Y) ;;
+    *)  sudo apt-get install git-core
+        sudo adduser git
+        sudo passwd git
+        sudo mkdir -p /home/git
+                ;;
+esac
 
 # start cloning git repos
 read -p "Clone github repos to ~/gitrepos? [Y/n/q]: " choice
