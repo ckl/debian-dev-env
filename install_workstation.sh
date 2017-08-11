@@ -3,6 +3,16 @@
 # in vmware, set network adapter to bridge. then type:
 # sudo service networking restart
 
+# for a static ip, edit /etc/network/interfaces:
+# The primary network interface
+# allow-hotplug eth0
+# iface eth0 inet static
+#     address 10.1.1.125
+#     netmask 255.0.0.0
+#     gateway 10.1.1.1
+#
+# service networking restart
+
 # putty settings:
 # run Liquid_Carbon_Transparent.reg (modify SESSION_NAME in file first)
 # No bell
