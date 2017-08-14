@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# install sudo
+# su
+# apt-get update
+# apt-get install sudo
+# sudo adduser <username> sudo
+
 # in vmware, set network adapter to bridge. then type:
 # sudo service networking restart
 
