@@ -17,3 +17,14 @@ read -p "modify 'listen_addresses='localhost' to '*' in /etc/postgresql/x.x/main
 # \l                list databases
 # \c                connect to database
 # \d{t|i|s|v|S}     list tables/indexes/sequences/views/system tables
+# create user:
+# CREATE ROLE username WITH LOGIN PASSWORD 'quoted password'
+
+# see users: \du
+# Add CREATEDB privs: ALTER ROLE patrick CREATEDB;
+
+# create database:
+# CREATE DATABASE jerry;
+
+# grant privileges on database:
+# GRANT ALL PRIVILEGES ON DATABASE jerry to tom;
