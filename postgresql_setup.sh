@@ -28,3 +28,6 @@ read -p "modify 'listen_addresses='localhost' to '*' in /etc/postgresql/x.x/main
 
 # grant privileges on database:
 # GRANT ALL PRIVILEGES ON DATABASE jerry to tom;
+
+# grant login privs:
+# ALTER ROLE "username" WITH LOGIN;
