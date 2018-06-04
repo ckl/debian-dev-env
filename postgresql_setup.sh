@@ -17,6 +17,7 @@ read -p "modify 'listen_addresses='localhost' to '*' in /etc/postgresql/x.x/main
 # \l                list databases
 # \c                connect to database
 # \d{t|i|s|v|S}     list tables/indexes/sequences/views/system tables
+# \d+ table         describe table
 # create user:
 # CREATE ROLE username WITH LOGIN PASSWORD 'quoted password'
 
